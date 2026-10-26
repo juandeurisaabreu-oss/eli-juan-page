@@ -1,0 +1,1730 @@
+/* ==================================================
+   ELI & JUAN PAGE — DREAMY CUTE DESIGN
+   Paleta: rosa, lila, blanco y celeste
+================================================== */
+
+
+/* 1. VARIABLES DE COLOR */
+
+:root {
+    --pink: #ef91bd;
+    --pink-dark: #c65c94;
+    --pink-light: #fff0f7;
+
+    --lavender: #c5a5f4;
+    --lavender-light: #f0e6ff;
+
+    --blue-light: #d7f0ff;
+    --white: #ffffff;
+
+    --text: #73516a;
+    --text-light: #a58ba0;
+
+    --glass: rgb(255 255 255 / 62%);
+    --glass-border: rgb(255 255 255 / 85%);
+
+    --shadow:
+        0 25px 80px rgb(178 108 153 / 14%);
+}
+
+
+/* 2. RESET Y AJUSTES GENERALES */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    min-height: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 25px;
+}
+
+body {
+    position: relative;
+    isolation: isolate;
+
+    min-height: 100vh;
+    min-height: 100svh;
+
+    overflow-x: hidden;
+
+    color: var(--text);
+
+    font-family:
+        "Nunito",
+        "Trebuchet MS",
+        Arial,
+        sans-serif;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+
+    background:
+        radial-gradient(
+            ellipse at 8% 12%,
+            #ffd0e5 0%,
+            transparent 36%
+        ),
+        radial-gradient(
+            ellipse at 91% 15%,
+            #dfccff 0%,
+            transparent 36%
+        ),
+        radial-gradient(
+            ellipse at 88% 82%,
+            #d7eeff 0%,
+            transparent 32%
+        ),
+        radial-gradient(
+            ellipse at 16% 90%,
+            #ffe0ed 0%,
+            transparent 36%
+        ),
+        linear-gradient(
+            135deg,
+            #fff8fb 0%,
+            #ffedf5 45%,
+            #f5efff 100%
+        );
+
+    background-attachment: fixed;
+}
+
+
+/* 3. LUCES DIFUMINADAS DEL FONDO */
+
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: -20%;
+
+    z-index: -1;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 35% 35%,
+            rgb(255 255 255 / 65%),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 70% 68%,
+            rgb(240 207 255 / 38%),
+            transparent 24%
+        );
+
+    filter: blur(35px);
+
+    animation: dreamy-light 14s ease-in-out infinite alternate;
+}
+
+body::after {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    z-index: -1;
+    pointer-events: none;
+
+    opacity: 0.2;
+
+    background-image:
+        radial-gradient(
+            rgb(177 118 159 / 20%) 0.7px,
+            transparent 0.7px
+        );
+
+    background-size: 19px 19px;
+
+    mask-image: linear-gradient(
+        to bottom,
+        transparent,
+        black 25%,
+        black 80%,
+        transparent
+    );
+}
+
+
+/* 4. DECORACIONES FLOTANTES */
+
+.decorations {
+    position: fixed;
+    inset: 0;
+
+    overflow: hidden;
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+.decoration {
+    position: absolute;
+    display: block;
+
+    user-select: none;
+
+    will-change: transform;
+
+    animation: float-decoration 7s ease-in-out infinite;
+}
+
+.heart {
+    color: #e99bc1;
+    font-size: clamp(30px, 4vw, 58px);
+
+    opacity: 0.58;
+
+    text-shadow:
+        0 8px 25px rgb(223 125 174 / 20%);
+}
+
+.star {
+    color: #b99ce6;
+    font-size: clamp(23px, 3vw, 39px);
+
+    opacity: 0.8;
+
+    text-shadow:
+        0 0 20px rgb(188 155 242 / 45%);
+}
+
+.heart-one {
+    top: 19%;
+    left: 8%;
+
+    transform: rotate(-15deg);
+
+    animation-delay: -1s;
+}
+
+.heart-two {
+    right: 8%;
+    bottom: 19%;
+
+    font-size: clamp(40px, 5vw, 66px);
+
+    animation-delay: -4s;
+}
+
+.star-one {
+    top: 13%;
+    right: 21%;
+
+    animation-name: sparkle;
+    animation-duration: 3.5s;
+}
+
+.star-two {
+    top: 52%;
+    left: 12%;
+
+    animation-name: sparkle;
+    animation-duration: 4s;
+    animation-delay: -2s;
+}
+
+.star-three {
+    right: 15%;
+    bottom: 13%;
+
+    animation-name: sparkle;
+    animation-duration: 3s;
+    animation-delay: -1s;
+}
+
+.bow {
+    left: 23%;
+    bottom: 13%;
+
+    color: #d995c0;
+    font-size: 36px;
+
+    opacity: 0.7;
+
+    animation-delay: -3s;
+}
+
+
+/* 5. ESTRUCTURA PRINCIPAL */
+
+.container {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    width: min(100% - 48px, 1080px);
+    min-height: 100vh;
+    min-height: 100svh;
+
+    margin-inline: auto;
+}
+
+
+/* 6. ENCABEZADO */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 18px;
+
+    padding: 28px 0;
+}
+
+.logo {
+    position: relative;
+
+    color: var(--pink-dark);
+
+    font-size: clamp(19px, 2.3vw, 25px);
+    font-weight: 900;
+    letter-spacing: -1px;
+
+    text-decoration: none;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.logo span {
+    display: inline-block;
+
+    color: var(--pink);
+
+    animation: heartbeat 3s ease-in-out infinite;
+}
+
+.logo:hover {
+    color: #a94d80;
+    transform: translateY(-2px);
+}
+
+.header-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 11px 17px;
+
+    color: #9a7595;
+    background: rgb(255 255 255 / 49%);
+
+    border: 1px solid rgb(255 255 255 / 85%);
+    border-radius: 50px;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+
+    box-shadow:
+        0 6px 22px rgb(183 121 162 / 6%);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+
+/* 7. TARJETA PRINCIPAL DE CRISTAL */
+
+.welcome-card {
+    position: relative;
+    isolation: isolate;
+
+    width: min(100%, 650px);
+
+    margin: auto;
+    padding: 49px 42px 35px;
+
+    text-align: center;
+
+    border: 1px solid transparent;
+    border-radius: 35px;
+
+    background:
+        linear-gradient(
+            150deg,
+            rgb(255 255 255 / 82%),
+            rgb(255 250 253 / 66%) 55%,
+            rgb(251 246 255 / 74%)
+        ) padding-box,
+
+        linear-gradient(
+            135deg,
+            rgb(255 255 255 / 100%),
+            rgb(255 197 224 / 78%),
+            rgb(207 184 255 / 85%),
+            rgb(255 255 255 / 95%)
+        ) border-box;
+
+    box-shadow:
+        0 35px 90px rgb(176 113 157 / 15%),
+        0 10px 30px rgb(196 144 186 / 8%),
+        inset 0 1px 0 rgb(255 255 255 / 95%);
+
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+
+    animation: card-entrance 0.9s cubic-bezier(.2, .8, .2, 1) both;
+
+    transition:
+        box-shadow 0.4s ease,
+        border-radius 0.4s ease;
+}
+
+
+/* Luz suave dentro de la tarjeta */
+
+.welcome-card::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    z-index: -1;
+    pointer-events: none;
+
+    border-radius: inherit;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgb(255 220 239 / 50%),
+            transparent 55%
+        );
+
+    opacity: 0.9;
+}
+
+
+/* Línea brillante superior */
+
+.welcome-card::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 15%;
+
+    width: 70%;
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        white,
+        transparent
+    );
+
+    pointer-events: none;
+}
+
+.welcome-card:hover {
+    box-shadow:
+        0 40px 100px rgb(176 113 157 / 19%),
+        0 12px 35px rgb(196 144 186 / 10%),
+        inset 0 1px 0 white;
+}
+
+
+/* 8. ETIQUETA SUPERIOR */
+
+.top-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    padding: 10px 16px;
+
+    color: #bd6799;
+
+    background: linear-gradient(
+        135deg,
+        #fff2f8,
+        #f9efff
+    );
+
+    border: 1px solid #f9ddec;
+    border-radius: 50px;
+
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.7px;
+
+    box-shadow:
+        inset 0 1px 0 white,
+        0 5px 14px rgb(208 132 179 / 5%);
+}
+
+
+/* 9. ICONO DE LAZITO */
+
+.main-icon {
+    position: relative;
+
+    display: grid;
+    place-items: center;
+
+    width: 102px;
+    height: 102px;
+
+    margin: 29px auto 27px;
+
+    color: #bd6799;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffe5f0 0%,
+            #f8ddf2 48%,
+            #ece1ff 100%
+        );
+
+    border: 1px solid rgb(255 255 255 / 95%);
+    border-radius: 32px;
+
+    box-shadow:
+        0 14px 32px rgb(196 124 169 / 18%),
+        inset 0 1px 0 white;
+
+    font-size: 47px;
+
+    transform: rotate(-5deg);
+
+    animation: icon-float 5s ease-in-out infinite;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.main-icon::before {
+    content: "";
+
+    position: absolute;
+    inset: -7px;
+
+    border: 1px solid rgb(232 162 200 / 30%);
+    border-radius: 36px;
+
+    pointer-events: none;
+}
+
+.main-icon:hover {
+    transform: rotate(0deg) scale(1.07);
+
+    box-shadow:
+        0 20px 42px rgb(196 124 169 / 25%),
+        inset 0 1px 0 white;
+}
+
+
+/* 10. TÍTULO PRINCIPAL */
+
+h1 {
+    color: #76516d;
+
+    font-size: clamp(31px, 5vw, 47px);
+    font-weight: 900;
+
+    line-height: 1.22;
+    letter-spacing: -1.8px;
+
+    text-wrap: balance;
+}
+
+h1 span {
+    display: block;
+
+    padding-top: 4px;
+
+    color: transparent;
+
+    background: linear-gradient(
+        100deg,
+        #c9659b 0%,
+        #ec91bb 42%,
+        #aa83dc 100%
+    );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+
+/* 11. DESCRIPCIÓN */
+
+.description {
+    max-width: 405px;
+
+    margin: 20px auto 26px;
+
+    color: #997f94;
+
+    font-size: 15px;
+    line-height: 1.95;
+    font-weight: 500;
+
+    text-wrap: pretty;
+}
+
+
+/* 12. SEPARADOR DECORATIVO */
+
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 14px;
+
+    margin: 29px auto;
+}
+
+.divider > span:not(.divider-heart) {
+    width: min(22%, 90px);
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #eac9df
+    );
+}
+
+.divider > span:last-child:not(.divider-heart) {
+    background: linear-gradient(
+        90deg,
+        #eac9df,
+        transparent
+    );
+}
+
+.divider-heart {
+    color: #db83b0;
+    font-size: 19px;
+
+    animation: heartbeat 3s ease-in-out infinite;
+}
+
+
+/* 13. TÍTULO DE LA SECCIÓN */
+
+.section-label {
+    margin-bottom: 16px;
+
+    color: #b084a5;
+
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 2.5px;
+}
+
+
+/* 14. BOTÓN PREMIUM DE ROBLOX */
+
+.roblox-button {
+    position: relative;
+    isolation: isolate;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    width: 100%;
+    min-height: 82px;
+
+    padding: 16px 18px;
+
+    overflow: hidden;
+
+    color: white;
+    text-align: left;
+    text-decoration: none;
+
+    background: linear-gradient(
+        110deg,
+        #e98ab7 0%,
+        #dd91c1 43%,
+        #b69be9 100%
+    );
+
+    border: 1px solid rgb(255 255 255 / 75%);
+    border-radius: 22px;
+
+    box-shadow:
+        0 12px 26px rgb(202 128 176 / 25%),
+        inset 0 1px 0 rgb(255 255 255 / 45%);
+
+    transition:
+        transform 0.3s cubic-bezier(.2, .8, .2, 1),
+        box-shadow 0.3s ease,
+        filter 0.3s ease;
+}
+
+
+/* Brillo que cruza el botón */
+
+.roblox-button::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    z-index: -1;
+
+    background: linear-gradient(
+        110deg,
+        transparent 20%,
+        rgb(255 255 255 / 26%) 48%,
+        transparent 72%
+    );
+
+    transform: translateX(-130%);
+
+    transition: transform 0.8s ease;
+}
+
+
+/* Halo debajo del botón */
+
+.roblox-button::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 5px;
+
+    z-index: -1;
+
+    border: 1px solid rgb(255 255 255 / 23%);
+    border-radius: 17px;
+
+    pointer-events: none;
+}
+
+
+/* Icono interior del botón */
+
+.button-icon {
+    display: grid;
+    place-items: center;
+
+    flex-shrink: 0;
+
+    width: 47px;
+    height: 47px;
+
+    color: #c3669a;
+
+    background: linear-gradient(
+        145deg,
+        #fff8fb,
+        #ffe7f2
+    );
+
+    border: 1px solid rgb(255 255 255 / 90%);
+    border-radius: 15px;
+
+    box-shadow:
+        0 4px 12px rgb(157 74 121 / 12%),
+        inset 0 1px 0 white;
+
+    font-size: 25px;
+
+    transition:
+        transform 0.3s ease,
+        border-radius 0.3s ease;
+}
+
+
+/* Texto del botón */
+
+.button-text {
+    display: flex;
+    flex: 1;
+
+    flex-direction: column;
+    gap: 6px;
+
+    min-width: 0;
+}
+
+.button-text strong {
+    color: white;
+
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 0.1px;
+}
+
+.button-text small {
+    color: rgb(255 255 255 / 91%);
+
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+
+/* Flecha */
+
+.arrow {
+    display: grid;
+    place-items: center;
+
+    flex-shrink: 0;
+
+    width: 35px;
+    height: 35px;
+
+    color: white;
+
+    border: 1px solid rgb(255 255 255 / 38%);
+    border-radius: 12px;
+
+    background: rgb(255 255 255 / 13%);
+
+    font-size: 19px;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+
+/* Animaciones al pasar el cursor */
+
+.roblox-button:hover {
+    transform: translateY(-5px) scale(1.012);
+
+    filter: saturate(1.08);
+
+    box-shadow:
+        0 19px 38px rgb(202 128 176 / 33%),
+        inset 0 1px 0 rgb(255 255 255 / 60%);
+}
+
+.roblox-button:hover::before {
+    transform: translateX(130%);
+}
+
+.roblox-button:hover .button-icon {
+    transform: rotate(-8deg) scale(1.06);
+    border-radius: 19px;
+}
+
+.roblox-button:hover .arrow {
+    transform: translate(3px, -3px);
+    background: rgb(255 255 255 / 25%);
+}
+
+.roblox-button:active {
+    transform: translateY(-1px) scale(0.99);
+}
+
+.roblox-button:focus-visible {
+    outline: 3px solid #9f6fbd;
+    outline-offset: 5px;
+}
+
+
+/* 15. MENSAJE INFERIOR */
+
+.little-note {
+    margin-top: 25px;
+
+    color: #b18ea7;
+
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.little-note::first-letter {
+    color: #de89b5;
+}
+
+
+/* 16. PIE DE PÁGINA */
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 27px 0;
+
+    color: #a78ca2;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.footer span {
+    transition: color 0.25s ease;
+}
+
+.footer span:hover {
+    color: #c66c9c;
+}
+
+
+/* 17. ANIMACIONES */
+
+@keyframes dreamy-light {
+    0% {
+        transform: translate3d(-1%, -1%, 0) scale(1);
+    }
+
+    100% {
+        transform: translate3d(2%, 2%, 0) scale(1.06);
+    }
+}
+
+@keyframes float-decoration {
+    0%,
+    100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -15px;
+    }
+}
+
+@keyframes sparkle {
+    0%,
+    100% {
+        opacity: 0.45;
+        scale: 0.85;
+        rotate: 0deg;
+    }
+
+    50% {
+        opacity: 1;
+        scale: 1.15;
+        rotate: 14deg;
+    }
+}
+
+@keyframes icon-float {
+    0%,
+    100% {
+        translate: 0 0;
+        rotate: -5deg;
+    }
+
+    50% {
+        translate: 0 -5px;
+        rotate: -2deg;
+    }
+}
+
+@keyframes heartbeat {
+    0%,
+    100% {
+        scale: 1;
+    }
+
+    50% {
+        scale: 1.13;
+    }
+}
+
+@keyframes card-entrance {
+    from {
+        opacity: 0;
+        translate: 0 22px;
+        scale: 0.98;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+        scale: 1;
+    }
+}
+
+
+/* 18. TABLET Y MÓVILES */
+
+@media (max-width: 600px) {
+    .container {
+        width: min(100% - 30px, 650px);
+    }
+
+    .header {
+        padding: 21px 0;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .header-label {
+        padding: 9px 11px;
+        font-size: 10px;
+    }
+
+    .welcome-card {
+        padding: 38px 23px 29px;
+        border-radius: 28px;
+    }
+
+    .top-label {
+        max-width: 100%;
+        padding: 9px 11px;
+        font-size: 9px;
+        letter-spacing: 1.1px;
+    }
+
+    .main-icon {
+        width: 86px;
+        height: 86px;
+        margin: 25px auto;
+        border-radius: 27px;
+        font-size: 40px;
+    }
+
+    h1 {
+        font-size: clamp(29px, 7.2vw, 39px);
+        letter-spacing: -1.2px;
+    }
+
+    .description {
+        font-size: 14px;
+        line-height: 1.85;
+    }
+
+    .divider {
+        margin: 23px auto;
+    }
+
+    .roblox-button {
+        gap: 11px;
+        padding: 14px 12px;
+        border-radius: 18px;
+    }
+
+    .button-icon {
+        width: 41px;
+        height: 41px;
+        font-size: 22px;
+    }
+
+    .button-text strong {
+        font-size: 13px;
+    }
+
+    .button-text small {
+        font-size: 10px;
+    }
+
+    .arrow {
+        width: 31px;
+        height: 31px;
+        font-size: 17px;
+    }
+
+    .heart-one {
+        left: 2%;
+    }
+
+    .heart-two {
+        right: 2%;
+    }
+
+    .star-two {
+        left: 3%;
+    }
+
+    .footer {
+        padding: 22px 0;
+        font-size: 10px;
+    }
+}
+
+
+/* 19. PANTALLAS MUY PEQUEÑAS */
+
+@media (max-width: 360px) {
+    .container {
+        width: calc(100% - 22px);
+    }
+
+    .header-label {
+        max-width: 145px;
+        font-size: 9px;
+    }
+
+    .welcome-card {
+        padding: 32px 16px 25px;
+    }
+
+    .top-label {
+        font-size: 8px;
+    }
+
+    .roblox-button {
+        gap: 9px;
+        padding: 12px 9px;
+    }
+
+    .button-text strong {
+        font-size: 12px;
+    }
+}
+
+
+/* 20. ACCESIBILIDAD: REDUCIR MOVIMIENTO */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+/* ==========================================
+   DREAMY INTRO — ELI & JUAN PAGE
+========================================== */
+
+/* Full-screen intro background */
+
+.intro-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: grid;
+    place-items: center;
+
+    overflow: hidden;
+    isolation: isolate;
+
+    background:
+        radial-gradient(
+            circle at 18% 20%,
+            #ffd0e6 0%,
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 85% 25%,
+            #e5d2ff 0%,
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            #d8f1ff 0%,
+            transparent 42%
+        ),
+        linear-gradient(
+            135deg,
+            #fff7fb,
+            #ffe7f2 52%,
+            #f4ecff
+        );
+
+    animation: intro-screen-exit 0.9s ease 3.2s forwards;
+}
+
+
+/* Soft glowing light behind the content */
+
+.intro-screen::before {
+    content: "";
+
+    position: absolute;
+    inset: -20%;
+
+    z-index: -1;
+
+    background:
+        radial-gradient(
+            circle,
+            rgb(255 255 255 / 75%),
+            transparent 35%
+        );
+
+    filter: blur(35px);
+
+    animation: intro-light 4s ease-in-out infinite alternate;
+}
+
+
+/* A subtle ring around the central content */
+
+.intro-screen::after {
+    content: "";
+
+    position: absolute;
+
+    width: min(76vw, 470px);
+    aspect-ratio: 1;
+
+    border: 1px solid rgb(255 255 255 / 65%);
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 60px rgb(255 255 255 / 25%),
+        inset 0 0 50px rgb(255 255 255 / 20%);
+
+    pointer-events: none;
+
+    animation: intro-ring 2s ease-out both;
+}
+
+
+/* Central content */
+
+.intro-content {
+    position: relative;
+    z-index: 2;
+
+    width: min(90%, 450px);
+    padding: 30px 15px;
+
+    text-align: center;
+
+    animation: intro-content-enter 1s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+
+/* Main bow */
+
+.intro-bow {
+    display: grid;
+    place-items: center;
+
+    width: 106px;
+    height: 106px;
+
+    margin: 0 auto 29px;
+
+    background: linear-gradient(
+        145deg,
+        #fff7fb,
+        #ffe0ef 55%,
+        #eee1ff
+    );
+
+    border: 1px solid rgb(255 255 255 / 95%);
+    border-radius: 34px;
+
+    box-shadow:
+        0 20px 55px rgb(195 119 166 / 20%),
+        inset 0 1px 0 white;
+
+    font-size: 51px;
+
+    transform: rotate(-7deg);
+
+    animation:
+        intro-bow-enter 0.9s ease 0.15s both,
+        intro-bow-float 2.5s ease-in-out 1s infinite;
+}
+
+
+/* Small uppercase introduction */
+
+.intro-kicker {
+    margin-bottom: 15px;
+
+    color: #b979a1;
+
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 3px;
+
+    animation: intro-text-enter 0.8s ease 0.25s both;
+}
+
+
+/* Names */
+
+.intro-title {
+    color: #80546f;
+
+    font-family:
+        "Trebuchet MS",
+        Arial,
+        sans-serif;
+
+    font-size: clamp(38px, 8vw, 59px);
+    font-weight: 900;
+
+    line-height: 1.15;
+    letter-spacing: -2px;
+
+    animation: intro-text-enter 0.8s ease 0.4s both;
+}
+
+.intro-title span {
+    display: inline-block;
+
+    color: #db8cb9;
+
+    font-weight: 500;
+
+    animation: intro-heartbeat 2s ease-in-out 1s infinite;
+}
+
+
+/* Welcome message */
+
+.intro-subtitle {
+    margin-top: 16px;
+
+    color: #9b7b94;
+
+    font-size: 13px;
+    line-height: 1.8;
+    letter-spacing: 0.3px;
+
+    animation: intro-text-enter 0.8s ease 0.55s both;
+}
+
+
+/* Progress bar background */
+
+.intro-progress {
+    width: min(220px, 72%);
+    height: 5px;
+
+    margin: 34px auto 18px;
+
+    overflow: hidden;
+
+    background: rgb(211 162 194 / 23%);
+    border: 1px solid rgb(255 255 255 / 75%);
+    border-radius: 50px;
+
+    animation: intro-text-enter 0.7s ease 0.65s both;
+}
+
+
+/* Animated pink-to-lilac progress */
+
+.intro-progress span {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: inherit;
+
+    background: linear-gradient(
+        90deg,
+        #ee9fc7,
+        #d6a5f0,
+        #b8c9f9
+    );
+
+    transform: scaleX(0);
+    transform-origin: left;
+
+    animation: intro-progress-fill 2.55s ease-in-out 0.25s forwards;
+}
+
+
+/* Small finishing message */
+
+.intro-footer {
+    color: #b28ca8;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+
+    animation: intro-text-enter 0.8s ease 0.7s both;
+}
+
+
+/* Floating decorative hearts */
+
+.intro-heart {
+    position: absolute;
+
+    color: #df8cb8;
+
+    font-size: clamp(34px, 5vw, 60px);
+
+    opacity: 0;
+
+    text-shadow:
+        0 8px 28px rgb(208 119 171 / 20%);
+
+    animation: intro-floating-heart 3s ease-in-out infinite;
+}
+
+.intro-heart-one {
+    top: 23%;
+    left: 12%;
+
+    animation-delay: 0.5s;
+}
+
+.intro-heart-two {
+    right: 12%;
+    bottom: 23%;
+
+    font-size: clamp(40px, 6vw, 68px);
+
+    animation-delay: 1.2s;
+}
+
+
+/* Twinkling stars */
+
+.intro-sparkle {
+    position: absolute;
+
+    color: #b89be4;
+
+    font-size: clamp(23px, 4vw, 38px);
+
+    opacity: 0;
+
+    animation: intro-twinkle 1.8s ease-in-out infinite;
+}
+
+.sparkle-one {
+    top: 18%;
+    right: 24%;
+
+    animation-delay: 0.3s;
+}
+
+.sparkle-two {
+    left: 21%;
+    bottom: 22%;
+
+    font-size: 32px;
+
+    animation-delay: 0.8s;
+}
+
+.sparkle-three {
+    right: 17%;
+    top: 62%;
+
+    animation-delay: 1.1s;
+}
+
+
+/* ==========================================
+   INTRO KEYFRAMES
+========================================== */
+
+/* Reveal the intro content */
+
+@keyframes intro-content-enter {
+    from {
+        opacity: 0;
+        transform: translateY(22px) scale(0.96);
+        filter: blur(7px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+
+/* Bow entrance */
+
+@keyframes intro-bow-enter {
+    from {
+        opacity: 0;
+        transform: translateY(20px) rotate(-15deg) scale(0.65);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) rotate(-7deg) scale(1);
+    }
+}
+
+
+/* Gentle floating bow */
+
+@keyframes intro-bow-float {
+    0%,
+    100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -8px;
+    }
+}
+
+
+/* Text appears gently */
+
+@keyframes intro-text-enter {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Progress bar fills */
+
+@keyframes intro-progress-fill {
+    from {
+        transform: scaleX(0);
+    }
+
+    to {
+        transform: scaleX(1);
+    }
+}
+
+
+/* Hearts float into view */
+
+@keyframes intro-floating-heart {
+    0% {
+        opacity: 0;
+        transform: translateY(15px) scale(0.7) rotate(-12deg);
+    }
+
+    25% {
+        opacity: 0.75;
+    }
+
+    55% {
+        opacity: 0.65;
+        transform: translateY(-12px) scale(1) rotate(8deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-35px) scale(0.8) rotate(-5deg);
+    }
+}
+
+
+/* Twinkling stars */
+
+@keyframes intro-twinkle {
+    0%,
+    100% {
+        opacity: 0.25;
+        transform: scale(0.75) rotate(0deg);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2) rotate(18deg);
+    }
+}
+
+
+/* Moving light */
+
+@keyframes intro-light {
+    from {
+        transform: translate(-3%, -2%) scale(0.95);
+    }
+
+    to {
+        transform: translate(3%, 2%) scale(1.08);
+    }
+}
+
+
+/* Ring expands */
+
+@keyframes intro-ring {
+    from {
+        opacity: 0;
+        transform: scale(0.75);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* Names pulse gently */
+
+@keyframes intro-heartbeat {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+
+/* Hide the intro and reveal the actual page */
+
+@keyframes intro-screen-exit {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+}
+
+
+/* ==========================================
+   SMALL SCREENS
+========================================== */
+
+@media (max-width: 500px) {
+    .intro-bow {
+        width: 88px;
+        height: 88px;
+
+        margin-bottom: 25px;
+
+        border-radius: 28px;
+
+        font-size: 43px;
+    }
+
+    .intro-kicker {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .intro-subtitle {
+        max-width: 270px;
+        margin-inline: auto;
+
+        font-size: 12px;
+    }
+
+    .intro-heart-one {
+        left: 5%;
+    }
+
+    .intro-heart-two {
+        right: 5%;
+    }
+
+    .sparkle-two {
+        left: 7%;
+    }
+}
+
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+    .intro-screen {
+        animation-delay: 0s !important;
+        animation-duration: 0.01ms !important;
+    }
+
+    .intro-screen *,
+    .intro-screen::before,
+    .intro-screen::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+/* =================================
+   PERFORMANCE MODE — CUTE & SMOOTH
+================================= */
+
+/* Evita el coste del fondo fijo */
+body {
+    background-attachment: scroll;
+}
+
+/* Luces del fondo más ligeras */
+body::before {
+    filter: none;
+    animation: none;
+    opacity: 0.65;
+}
+
+/* Tarjeta sin desenfoque costoso */
+.welcome-card {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+/* Decoraciones de la página sin movimiento constante */
+.decoration {
+    animation: none;
+}
+
+/* Conserva el aspecto cute sin animaciones infinitas */
+.logo span,
+.main-icon,
+.divider-heart {
+    animation: none;
+}
+
+/* Fondo de introducción más ligero */
+.intro-screen::before {
+    filter: none;
+    animation: none;
+}
+
+/* Entrada suave del contenido */
+.intro-content {
+    animation: intro-content-enter 0.7s ease both;
+}
+
+/* El lazo aparece, pero no flota continuamente */
+.intro-bow {
+    animation: intro-bow-enter 0.8s ease 0.1s both;
+}
+
+/* Entrada sin desenfoque */
+@keyframes intro-content-enter {
+    from {
+        opacity: 0;
+        transform: translateY(16px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
